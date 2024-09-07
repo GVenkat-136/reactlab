@@ -9,6 +9,7 @@ import Reduxstore from './Topics/Redux/Main'
 
 
 export default function App() {
+  console.log(<h1 ></h1>)
   return (
    <Reduxstore />
   )

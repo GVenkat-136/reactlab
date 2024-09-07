@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import MianSlices from "./Slices";
+import MainSlices from "./Slices"; // Corrected 'MianSlices' to 'MainSlices'
+import { newApi } from "../Rtk/Service";
 
 export const MyStore = configureStore({
-   reducer:{
-      MainStore : MianSlices.reducer
-   }
-})
+   reducer: {
+      MainStore: MainSlices.reducer, // Corrected 'MianSlices' to 'MainSlices'
+      [newApi.reducerPath]: newApi.reducer
+   },
+   middleware: (getDefaultMiddleware) => 
+      getDefaultMiddleware().concat(newApi.middleware),
+});

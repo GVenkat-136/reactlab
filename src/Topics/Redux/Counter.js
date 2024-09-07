@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { increment,decrement } from './Slices'
 import { useDispatch,useSelector } from 'react-redux'
+import { useGetTodosQuery } from '../Rtk/Service'
 
 export default function Counter() {
    const value = useSelector((state) => state.MainStore.value)
-   
+   const {data, error, isLoading} = useGetTodosQuery()
+   console.log(data)
    const dispatch = useDispatch()
    const [show,setShow] = useState(true)
 
